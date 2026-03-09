@@ -10,12 +10,22 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      var _errors = [];
       window.addEventListener('error', function(e) {
-        document.body.innerHTML = '<div style="padding:20px;font-size:16px;color:red;background:#fff;"><b>エラー:</b><br>' + e.message + '<br>' + (e.filename || '') + '</div>';
-      });
+        if (e.target && e.target !== window) {
+          _errors.push('404?: ' + (e.target.src || e.target.href || '?'));
+        } else {
+          _errors.push('JS error: ' + e.message);
+        }
+      }, true);
       setTimeout(function() {
+        var scripts = document.querySelectorAll('script[type="module"]');
+        var srcs = Array.from(scripts).map(function(s){ return s.src; }).join('<br>');
         if (!document.getElementById('root').hasChildNodes()) {
-          document.body.innerHTML = '<div style="padding:20px;font-size:16px;background:#f0f4ff;"><b>読み込み中...</b><br>Reactが起動していません。<br>URLを確認してください。</div>';
+          document.body.innerHTML = '<div style="padding:20px;font-size:14px;background:#f0f4ff;">'
+            + '<b>Reactが起動していません</b><br><br>'
+            + '<b>Module scripts:</b><br>' + (srcs || 'なし') + '<br><br>'
+            + '<b>Errors:</b><br>' + (_errors.join('<br>') || 'なし') + '</div>';
         }
       }, 3000);
     </script>
