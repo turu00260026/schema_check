@@ -7,6 +7,7 @@
     <title>さんすう スキーマ しんだん</title>
   </head>
   <body>
+    <div id="loading-msg" style="padding:20px;font-size:14px;background:#f0f4ff;">ページ読み込み中...</div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
@@ -18,7 +19,12 @@
           _errors.push('JS error: ' + e.message);
         }
       }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        _errors.push('Promise rejection: ' + e.reason);
+      });
       setTimeout(function() {
+        var loadingEl = document.getElementById('loading-msg');
+        if (loadingEl) loadingEl.remove();
         var scripts = document.querySelectorAll('script[type="module"]');
         var srcs = Array.from(scripts).map(function(s){ return s.src; }).join('<br>');
         if (!document.getElementById('root').hasChildNodes()) {
@@ -27,7 +33,7 @@
             + '<b>Module scripts:</b><br>' + (srcs || 'なし') + '<br><br>'
             + '<b>Errors:</b><br>' + (_errors.join('<br>') || 'なし') + '</div>';
         }
-      }, 3000);
+      }, 4000);
     </script>
   </body>
 </html>
