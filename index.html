@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>さんすう スキーマ しんだん</title>
+  </head>
+  <body>
+    <div id="loading-msg" style="padding:20px;font-size:14px;background:#f0f4ff;">ページ読み込み中...</div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      setTimeout(function() {
+        var loadingEl = document.getElementById('loading-msg');
+        if (loadingEl) loadingEl.remove();
+      }, 4000);
+    </script>
+  </body>
+</html>
