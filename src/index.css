@@ -1,0 +1,81 @@
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Hiragino Kaku Gothic Pro", "Meiryo", "Yu Gothic", "Noto Sans JP", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #222;
+  background-color: #f0f4ff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f0f4ff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Typography baseline for kids */
+p, span, div, button, input {
+  font-family: "Hiragino Kaku Gothic Pro", "Meiryo", "Yu Gothic", "Noto Sans JP", sans-serif;
+}
+
+/* Button reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible {
+  outline: 3px solid #1565c0;
+  outline-offset: 2px;
+}
+
+/* Input */
+input {
+  font-family: inherit;
+}
+
+input:focus {
+  outline: 3px solid #1565c0;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f4ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #90caf9;
+  border-radius: 3px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.25s ease both;
+}
