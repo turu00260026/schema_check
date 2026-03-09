@@ -9,5 +9,15 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.addEventListener('error', function(e) {
+        document.body.innerHTML = '<div style="padding:20px;font-size:16px;color:red;background:#fff;"><b>エラー:</b><br>' + e.message + '<br>' + (e.filename || '') + '</div>';
+      });
+      setTimeout(function() {
+        if (!document.getElementById('root').hasChildNodes()) {
+          document.body.innerHTML = '<div style="padding:20px;font-size:16px;background:#f0f4ff;"><b>読み込み中...</b><br>Reactが起動していません。<br>URLを確認してください。</div>';
+        }
+      }, 3000);
+    </script>
   </body>
 </html>
