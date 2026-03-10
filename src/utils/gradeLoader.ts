@@ -6,9 +6,11 @@ import type { GradeData } from '../types';
  * and add it to the GRADE_FILES map below — no other changes needed.
  */
 import grade1 from '../data/questions/grade1.json';
+import grade2 from '../data/questions/grade2.json';
 
 const GRADE_FILES: Record<string, GradeData> = {
   grade1: grade1 as GradeData,
+  grade2: grade2 as GradeData,
 };
 
 export function loadAllGrades(): GradeData[] {

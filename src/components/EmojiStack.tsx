@@ -106,7 +106,7 @@ const CELL_SIZE = 28;
 
 export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false }) => {
   const size = compact ? 22 : CELL_SIZE;
-  const { style, left, right, removeCount, unknownSide } = option;
+  const { style, left, right, removeCount, removeLabel, unknownSide, groupCount, multiplier } = option;
 
   const containerStyle: React.CSSProperties = {
     padding: compact ? 8 : 12,
@@ -160,7 +160,7 @@ export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false 
           )}
         </div>
         <div style={{ fontSize: 13, color: '#e65100', fontWeight: 'bold' }}>
-          あわせる
+          たす
         </div>
       </div>
     );
@@ -186,7 +186,7 @@ export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false 
           label={left.label}
         />
         <div style={{ fontSize: 13, color: '#c62828', fontWeight: 'bold' }}>
-          {removeCount}こ へる
+          {removeLabel ?? `${removeCount}こ へる`}
         </div>
       </div>
     );
@@ -310,6 +310,94 @@ export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false 
     );
   }
 
+  // ── groups (かけ算) ───────────────────────
+  if (style === 'groups') {
+    const groups = groupCount ?? 1;
+    const perGroup = left.count;
+    return (
+      <div
+        style={{
+          ...containerStyle,
+          border: '3px solid #a5d6a7',
+          background: '#f1f8e9',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            gap: 8,
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
+          {Array.from({ length: groups }).map((_, gi) => (
+            <div
+              key={gi}
+              style={{
+                border: '2px dashed #66bb6a',
+                borderRadius: 8,
+                padding: 4,
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: 2,
+                minWidth: 40,
+              }}
+            >
+              {Array.from({ length: perGroup }).map((_, ei) => (
+                <EmojiCell key={ei} base={left.base} size={size} />
+              ))}
+            </div>
+          ))}
+        </div>
+        <div style={{ fontSize: 13, color: '#2e7d32', fontWeight: 'bold' }}>
+          {groups}グループ × {perGroup}こ
+        </div>
+      </div>
+    );
+  }
+
+  // ── tape (倍) ─────────────────────────────
+  if (style === 'tape') {
+    const times = multiplier ?? 1;
+    const base = left.count;
+    return (
+      <div
+        style={{
+          ...containerStyle,
+          border: '3px solid #ffcc80',
+          background: '#fff8e1',
+        }}
+      >
+        {/* Base row */}
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 12, color: '#e65100', fontWeight: 'bold', marginBottom: 2 }}>
+            {left.label ?? 'もと'}
+          </div>
+          <div style={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
+            {Array.from({ length: base }).map((_, i) => (
+              <EmojiCell key={i} base={left.base} size={size} />
+            ))}
+          </div>
+        </div>
+        <div style={{ fontSize: 14, color: '#e65100', fontWeight: 'bold' }}>
+          × {times} ばい
+        </div>
+        {/* Result row */}
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 12, color: '#e65100', fontWeight: 'bold', marginBottom: 2 }}>
+            {right?.label ?? 'こたえ'}
+          </div>
+          <div style={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap', maxWidth: 200 }}>
+            {Array.from({ length: base * times }).map((_, i) => (
+              <EmojiCell key={i} base={left.base} size={size} />
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return null;
 };
 
@@ -326,5 +414,9 @@ export function schemaStyleLabel(style: SchemaStyle): string {
       return 'くらべる（ひき算）';
     case 'reverse':
       return 'もとの かず（ぎゃく）';
+    case 'groups':
+      return 'グループにわける（かけ算）';
+    case 'tape':
+      return 'テープ図（何倍）';
   }
 }

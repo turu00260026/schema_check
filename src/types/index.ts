@@ -1,7 +1,7 @@
 // ============================================================
 // EmojiStack Schema types
 // ============================================================
-export type SchemaStyle = 'merge' | 'remove' | 'compare' | 'reverse';
+export type SchemaStyle = 'merge' | 'remove' | 'compare' | 'reverse' | 'groups' | 'tape';
 
 export interface EmojiGroup {
   base: string;
@@ -16,7 +16,10 @@ export interface SchemaOption {
   left: EmojiGroup;
   right?: EmojiGroup;      // used in merge / compare
   removeCount?: number;    // used in remove: how many to cross out
+  removeLabel?: string;    // custom label for remove style
   unknownSide?: 'left' | 'right'; // used in reverse
+  groupCount?: number;     // used in groups: number of groups
+  multiplier?: number;     // used in tape: multiplication factor
 }
 
 // ============================================================
