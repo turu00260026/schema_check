@@ -54,7 +54,7 @@ export const PinEntry: React.FC<Props> = ({ mode, onSuccess, onCancel }) => {
       </div>
       {mode === 'set' && (
         <div style={{ fontSize: 14, color: '#888', marginBottom: 20 }}>
-          おや専用ダッシュボードに アクセスするための番号です
+          ほごしゃ専用ダッシュボードに アクセスするための番号です
         </div>
       )}
 

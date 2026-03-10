@@ -362,7 +362,7 @@ export default function App() {
             ✏️ {childName ? 'なまえを かえる' : 'なまえを いれる'}
           </button>
           <button onClick={handleParentAccess} style={parentBtn}>
-            👪 おや用 ページ
+            👪 ほごしゃ用 ページ
           </button>
         </div>
       </div>

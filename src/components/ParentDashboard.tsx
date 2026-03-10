@@ -210,7 +210,7 @@ export const ParentDashboard: React.FC<Props> = ({ onClose }) => {
       >
         <div>
           <div style={{ fontSize: 28, fontWeight: 'bold', color: '#1a237e' }}>
-            👪 おや用 ダッシュボード
+            👪 ほごしゃ用 ダッシュボード
           </div>
           {childName && (
             <div style={{ fontSize: 18, color: '#555' }}>
@@ -377,7 +377,7 @@ export const ParentDashboard: React.FC<Props> = ({ onClose }) => {
             <div
               style={{ fontSize: 20, fontWeight: 'bold', color: '#2e7d32', marginBottom: 12 }}
             >
-              🌱 おや向け フォローアドバイス
+              🌱 ほごしゃ向け フォローアドバイス
             </div>
             {advice.map((a, i) => (
               <div
