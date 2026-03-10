@@ -5,13 +5,17 @@
     {
       "id": "g1_q01",
       "text": "こうえんに こどもが 8にん いました。あとから 5にん きました。こどもは なんにんに なりましたか？",
-      "intent": "添加（増加）パターン：元の数量にあとから追加される状況を理解し、合わせる（たし算）を選択できるかを診断する。",
-      "explanation": "はじめに 8にん いて、あとから 5にん きたので、2つの グループを あわせます。あわせるときは たし算（＋）を つかいます。8＋5＝13にん です。",
+      "intent": "添加パターン：あとから加わる状況のたし算",
+      "explanation": "はじめに 8にん いて、あとから 5にん きたので、たします。8＋5＝13にん です。",
       "steps": {
         "context": {
           "question": "こどもの にんずうは どうなりましたか？",
           "correct": "ふえた",
-          "options": ["ふえた", "へった", "かわらない"]
+          "options": [
+            "ふえた",
+            "へった",
+            "かわらない"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -19,41 +23,72 @@
           "options": [
             {
               "style": "merge",
-              "description": "8にんと 5にんを あわせる",
-              "left": { "base": "👦", "count": 8, "label": "はじめ 8にん" },
-              "right": { "base": "👧", "count": 5, "label": "あとから 5にん" }
+              "description": "8にんと 5にんを たす",
+              "left": {
+                "base": "👦",
+                "count": 8,
+                "label": "はじめ 8にん"
+              },
+              "right": {
+                "base": "👧",
+                "count": 5,
+                "label": "あとから 5にん"
+              }
             },
             {
               "style": "remove",
               "description": "8にんから 5にんが いなくなる",
-              "left": { "base": "👦", "count": 8, "label": "8にん" },
+              "left": {
+                "base": "👦",
+                "count": 8,
+                "label": "8にん"
+              },
               "removeCount": 5
             },
             {
               "style": "compare",
               "description": "8にんと 5にんを くらべる",
-              "left": { "base": "👦", "count": 8, "label": "A" },
-              "right": { "base": "👧", "count": 5, "label": "B" }
+              "left": {
+                "base": "👦",
+                "count": 8,
+                "label": "A"
+              },
+              "right": {
+                "base": "👧",
+                "count": 5,
+                "label": "B"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "8 ＋ 5",
-          "options": ["8 ＋ 5", "8 － 5", "5 － 8"]
+          "correct": [
+            "8 ＋ 5",
+            "5 ＋ 8"
+          ],
+          "options": [
+            "8 ＋ 5",
+            "5 ＋ 8",
+            "8 － 5"
+          ]
         }
       }
     },
     {
       "id": "g1_q02",
       "text": "はこに りんごが 12こ はいって います。そのうち 4こ たべました。のこりは なんこ ですか？",
-      "intent": "求残（減少）パターン：全体から一部がなくなる状況（ひき算）を理解できるかを診断する。",
-      "explanation": "12こ あったりんごのうち 4こを たべたので、のこりを もとめます。のこりを もとめるときは ひき算（－）を つかいます。12－4＝8こ です。",
+      "intent": "求残パターン：全体から一部がなくなるひき算",
+      "explanation": "12こ あったりんごのうち 4こを たべたので、のこりを もとめます。12－4＝8こ です。",
       "steps": {
         "context": {
           "question": "りんごの かずは どうなりましたか？",
           "correct": "へった",
-          "options": ["ふえた", "へった", "かわらない"]
+          "options": [
+            "ふえた",
+            "へった",
+            "かわらない"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -62,40 +97,70 @@
             {
               "style": "remove",
               "description": "12こから 4こを とる",
-              "left": { "base": "🍎", "count": 12, "label": "12こ" },
+              "left": {
+                "base": "🍎",
+                "count": 12,
+                "label": "12こ"
+              },
               "removeCount": 4
             },
             {
               "style": "merge",
-              "description": "12こと 4こを あわせる",
-              "left": { "base": "🍎", "count": 12, "label": "12こ" },
-              "right": { "base": "🍎", "count": 4, "label": "4こ" }
+              "description": "12こと 4こを たす",
+              "left": {
+                "base": "🍎",
+                "count": 12,
+                "label": "12こ"
+              },
+              "right": {
+                "base": "🍎",
+                "count": 4,
+                "label": "4こ"
+              }
             },
             {
               "style": "compare",
               "description": "12こと 4こを くらべる",
-              "left": { "base": "🍎", "count": 12, "label": "A" },
-              "right": { "base": "🍎", "count": 4, "label": "B" }
+              "left": {
+                "base": "🍎",
+                "count": 12,
+                "label": "A"
+              },
+              "right": {
+                "base": "🍎",
+                "count": 4,
+                "label": "B"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "12 － 4",
-          "options": ["12 ＋ 4", "12 － 4", "4 － 12"]
+          "correct": [
+            "12 － 4"
+          ],
+          "options": [
+            "12 ＋ 4",
+            "12 － 4",
+            "4 － 12"
+          ]
         }
       }
     },
     {
       "id": "g1_q03",
       "text": "あかい はなが 6ほん、きいろい はなが 4ほん あります。あわせて なんぼん ですか？",
-      "intent": "合併パターン：異なる2つのグループを合わせる（たし算）を理解できるかを診断する。添加との違いは「順番がない」こと。",
-      "explanation": "あかと きいろの はなは もともと べつべつに あります。2つを あわせるので たし算（＋）を つかいます。6＋4＝10ぼん です。",
+      "intent": "合併パターン：2つのグループをまとめるたし算",
+      "explanation": "あかと きいろの はなは もともと べつべつに あります。2つを たすので 6＋4＝10ぼん です。",
       "steps": {
         "context": {
           "question": "2つの グループを どうしますか？",
-          "correct": "あわせる",
-          "options": ["あわせる", "へらす", "くらべる"]
+          "correct": "たす",
+          "options": [
+            "たす",
+            "へらす",
+            "くらべる"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -103,41 +168,72 @@
           "options": [
             {
               "style": "merge",
-              "description": "6ほんと 4ほんを あわせる",
-              "left": { "base": "🌸", "count": 6, "label": "あか 6ほん" },
-              "right": { "base": "🌼", "count": 4, "label": "きいろ 4ほん" }
+              "description": "6ほんと 4ほんを たす",
+              "left": {
+                "base": "🌸",
+                "count": 6,
+                "label": "あか 6ほん"
+              },
+              "right": {
+                "base": "🌼",
+                "count": 4,
+                "label": "きいろ 4ほん"
+              }
             },
             {
               "style": "remove",
               "description": "6ほんから 4ほんを とる",
-              "left": { "base": "🌸", "count": 6, "label": "6ほん" },
+              "left": {
+                "base": "🌸",
+                "count": 6,
+                "label": "6ほん"
+              },
               "removeCount": 4
             },
             {
               "style": "compare",
               "description": "6ほんと 4ほんを くらべる",
-              "left": { "base": "🌸", "count": 6, "label": "あか" },
-              "right": { "base": "🌼", "count": 4, "label": "きいろ" }
+              "left": {
+                "base": "🌸",
+                "count": 6,
+                "label": "あか"
+              },
+              "right": {
+                "base": "🌼",
+                "count": 4,
+                "label": "きいろ"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "6 ＋ 4",
-          "options": ["6 ＋ 4", "6 － 4", "4 ＋ 6"]
+          "correct": [
+            "6 ＋ 4",
+            "4 ＋ 6"
+          ],
+          "options": [
+            "6 ＋ 4",
+            "4 ＋ 6",
+            "6 － 4"
+          ]
         }
       }
     },
     {
       "id": "g1_q04",
       "text": "おとこのこが 9にん、おんなのこが 5にん います。おとこのこは おんなのこより なんにん おおいですか？",
-      "intent": "求差パターン：2つの量を比べてその差を求める（ひき算）を理解できるかを診断する。「へった」のではなく「くらべる」状況であることに気づけるかがポイント。",
-      "explanation": "「おおい」「すくない」という ことばが でてきたら、くらべています。くらべるときも ひき算（－）を つかいます。9－5＝4にん です。",
+      "intent": "求差パターン：2つの量を比べるひき算",
+      "explanation": "くらべるときも ひき算（－）を つかいます。9－5＝4にん です。",
       "steps": {
         "context": {
           "question": "このおはなしで やっていることは なんですか？",
           "correct": "くらべる",
-          "options": ["くらべる", "あわせる", "へらす"]
+          "options": [
+            "くらべる",
+            "たす",
+            "へらす"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -146,40 +242,70 @@
             {
               "style": "compare",
               "description": "9にんと 5にんを くらべる",
-              "left": { "base": "👦", "count": 9, "label": "おとこのこ 9にん" },
-              "right": { "base": "👧", "count": 5, "label": "おんなのこ 5にん" }
+              "left": {
+                "base": "👦",
+                "count": 9,
+                "label": "おとこのこ 9にん"
+              },
+              "right": {
+                "base": "👧",
+                "count": 5,
+                "label": "おんなのこ 5にん"
+              }
             },
             {
               "style": "merge",
-              "description": "9にんと 5にんを あわせる",
-              "left": { "base": "👦", "count": 9, "label": "9にん" },
-              "right": { "base": "👧", "count": 5, "label": "5にん" }
+              "description": "9にんと 5にんを たす",
+              "left": {
+                "base": "👦",
+                "count": 9,
+                "label": "9にん"
+              },
+              "right": {
+                "base": "👧",
+                "count": 5,
+                "label": "5にん"
+              }
             },
             {
               "style": "remove",
               "description": "9にんから 5にんが いなくなる",
-              "left": { "base": "👦", "count": 9, "label": "9にん" },
+              "left": {
+                "base": "👦",
+                "count": 9,
+                "label": "9にん"
+              },
               "removeCount": 5
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "9 － 5",
-          "options": ["9 ＋ 5", "9 － 5", "5 － 9"]
+          "correct": [
+            "9 － 5"
+          ],
+          "options": [
+            "9 ＋ 5",
+            "9 － 5",
+            "5 － 9"
+          ]
         }
       }
     },
     {
       "id": "g1_q05",
       "text": "はこに ボールが いくつか はいって いました。3こ とりだしたら、のこりが 7こ になりました。はじめに なんこ はいって いましたか？",
-      "intent": "逆思考（もとの数）パターン：変化後の状況から逆算して元の数を求める。未知数がはじめの状態にあることを把握できるかを診断する。",
-      "explanation": "はじめの かずが わかりません（？こ）。3こ とりだしたあと 7こ のこった ので、はじめは 7＋3＝10こ でした。のこりとったかずを たすと もとの かずが わかります。",
+      "intent": "逆思考パターン：後の状態から元の数を逆算する",
+      "explanation": "のこりの 7こと とりだした 3こを たすと、はじめの かずが わかります。7＋3＝10こ です。",
       "steps": {
         "context": {
-          "question": "はじめの ボールの かずは わかりますか？",
-          "correct": "わからない（？）",
-          "options": ["わからない（？）", "3こ", "7こ"]
+          "question": "はじめに なんこ ありましたか？",
+          "correct": "10こ",
+          "options": [
+            "3こ",
+            "7こ",
+            "10こ"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -187,42 +313,74 @@
           "options": [
             {
               "style": "reverse",
-              "description": "はじめの かずが ？ で、3こ とって 7こ のこった",
-              "left": { "base": "⚽", "count": 7, "overlay": "❓", "label": "はじめ ？こ" },
-              "right": { "base": "⚽", "count": 3, "label": "とった 3こ" },
+              "description": "はじめ？こ → 3こ とって 7こ のこった",
+              "left": {
+                "base": "⚽",
+                "count": 7,
+                "overlay": "❓",
+                "label": "はじめ ？こ"
+              },
+              "right": {
+                "base": "⚽",
+                "count": 3,
+                "label": "とった 3こ"
+              },
               "unknownSide": "left"
             },
             {
               "style": "remove",
               "description": "7こから 3こを とる",
-              "left": { "base": "⚽", "count": 7, "label": "7こ" },
+              "left": {
+                "base": "⚽",
+                "count": 7,
+                "label": "7こ"
+              },
               "removeCount": 3
             },
             {
               "style": "merge",
-              "description": "7こと 3こを あわせる",
-              "left": { "base": "⚽", "count": 7, "label": "7こ" },
-              "right": { "base": "⚽", "count": 3, "label": "3こ" }
+              "description": "7こと 3こを たす",
+              "left": {
+                "base": "⚽",
+                "count": 7,
+                "label": "7こ"
+              },
+              "right": {
+                "base": "⚽",
+                "count": 3,
+                "label": "3こ"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "7 ＋ 3",
-          "options": ["7 ＋ 3", "7 － 3", "3 ＋ 7"]
+          "correct": [
+            "7 ＋ 3",
+            "3 ＋ 7"
+          ],
+          "options": [
+            "7 ＋ 3",
+            "3 ＋ 7",
+            "10"
+          ]
         }
       }
     },
     {
       "id": "g1_q06",
       "text": "きんぎょが すいそうに 7ひき います。3びき くわえました。きんぎょは ぜんぶで なんびき ですか？",
-      "intent": "添加パターン（別題材）：魚という具体物で添加（増加）の理解を確認する。前問の合併との区別（時間順序あり）も診断する。",
-      "explanation": "はじめに 7ひき いて、あとから 3びき くわえたので、ふえました。ふえたときは たし算（＋）をつかいます。7＋3＝10ひき です。",
+      "intent": "添加パターン別題材：増えることのたし算",
+      "explanation": "はじめに 7ひき いて、あとから 3びき くわえたので、ふえました。7＋3＝10ひき です。",
       "steps": {
         "context": {
           "question": "きんぎょの かずは どうなりましたか？",
           "correct": "ふえた",
-          "options": ["ふえた", "へった", "かわらない"]
+          "options": [
+            "ふえた",
+            "へった",
+            "かわらない"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -231,40 +389,71 @@
             {
               "style": "merge",
               "description": "7ひきに 3びきを くわえる",
-              "left": { "base": "🐟", "count": 7, "label": "はじめ 7ひき" },
-              "right": { "base": "🐡", "count": 3, "label": "くわえた 3びき" }
+              "left": {
+                "base": "🐟",
+                "count": 7,
+                "label": "はじめ 7ひき"
+              },
+              "right": {
+                "base": "🐡",
+                "count": 3,
+                "label": "くわえた 3びき"
+              }
             },
             {
               "style": "remove",
               "description": "7ひきから 3びきを とる",
-              "left": { "base": "🐟", "count": 7, "label": "7ひき" },
+              "left": {
+                "base": "🐟",
+                "count": 7,
+                "label": "7ひき"
+              },
               "removeCount": 3
             },
             {
               "style": "compare",
               "description": "7ひきと 3びきを くらべる",
-              "left": { "base": "🐟", "count": 7, "label": "A" },
-              "right": { "base": "🐡", "count": 3, "label": "B" }
+              "left": {
+                "base": "🐟",
+                "count": 7,
+                "label": "A"
+              },
+              "right": {
+                "base": "🐡",
+                "count": 3,
+                "label": "B"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "7 ＋ 3",
-          "options": ["7 ＋ 3", "7 － 3", "3 ＋ 7"]
+          "correct": [
+            "7 ＋ 3",
+            "3 ＋ 7"
+          ],
+          "options": [
+            "7 ＋ 3",
+            "3 ＋ 7",
+            "7 － 3"
+          ]
         }
       }
     },
     {
       "id": "g1_q07",
       "text": "えんぴつが 15ほん あります。ともだちに 6ほん あげました。のこりは なんぼん ですか？",
-      "intent": "求残パターン（別題材）：物を「あげる」という行為で減少する状況を理解し、ひき算を選択できるかを診断する。",
-      "explanation": "「あげた」ので えんぴつが へりました。へったときは ひき算（－）を つかいます。15－6＝9ほん です。",
+      "intent": "求残パターン別題材：あげることで減るひき算",
+      "explanation": "「あげた」ので えんぴつが へりました。15－6＝9ほん です。",
       "steps": {
         "context": {
           "question": "えんぴつの かずは どうなりましたか？",
           "correct": "へった",
-          "options": ["ふえた", "へった", "かわらない"]
+          "options": [
+            "ふえた",
+            "へった",
+            "かわらない"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -273,40 +462,70 @@
             {
               "style": "remove",
               "description": "15ほんから 6ほんを あげる",
-              "left": { "base": "✏️", "count": 15, "label": "15ほん" },
+              "left": {
+                "base": "✏️",
+                "count": 15,
+                "label": "15ほん"
+              },
               "removeCount": 6
             },
             {
               "style": "merge",
-              "description": "15ほんと 6ほんを あわせる",
-              "left": { "base": "✏️", "count": 15, "label": "15ほん" },
-              "right": { "base": "✏️", "count": 6, "label": "6ほん" }
+              "description": "15ほんと 6ほんを たす",
+              "left": {
+                "base": "✏️",
+                "count": 15,
+                "label": "15ほん"
+              },
+              "right": {
+                "base": "✏️",
+                "count": 6,
+                "label": "6ほん"
+              }
             },
             {
               "style": "compare",
               "description": "15ほんと 6ほんを くらべる",
-              "left": { "base": "✏️", "count": 15, "label": "A" },
-              "right": { "base": "✏️", "count": 6, "label": "B" }
+              "left": {
+                "base": "✏️",
+                "count": 15,
+                "label": "A"
+              },
+              "right": {
+                "base": "✏️",
+                "count": 6,
+                "label": "B"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "15 － 6",
-          "options": ["15 ＋ 6", "15 － 6", "6 ＋ 15"]
+          "correct": [
+            "15 － 6"
+          ],
+          "options": [
+            "15 ＋ 6",
+            "15 － 6",
+            "6 ＋ 15"
+          ]
         }
       }
     },
     {
       "id": "g1_q08",
       "text": "ゆうこさんは シールを 10まい もって います。たろうくんより 3まい おおいです。たろうくんは なんまい もって いますか？",
-      "intent": "求差（逆）パターン：多い方から少ない方を求める比較のひき算。「おおい」という言葉に惑わされてたし算を選ばないかを診断する。",
-      "explanation": "ゆうこさんの ほうが 3まい おおいので、たろうくんの まいすうは ゆうこさんより すくないです。おおい ほうから さをひくと すくない ほうの かずが わかります。10－3＝7まい です。",
+      "intent": "求差逆パターン：おおいほうから少ない方を求めるひき算",
+      "explanation": "ゆうこさんの ほうが 3まい おおいので、おおい ほうから さをひきます。10－3＝7まい です。",
       "steps": {
         "context": {
           "question": "2人の まいすうを どうしますか？",
           "correct": "くらべる",
-          "options": ["くらべる", "あわせる", "へらす"]
+          "options": [
+            "くらべる",
+            "たす",
+            "へらす"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -315,40 +534,71 @@
             {
               "style": "compare",
               "description": "10まいと ？まいを くらべる",
-              "left": { "base": "🏷️", "count": 10, "label": "ゆうこ 10まい" },
-              "right": { "base": "🏷️", "count": 7, "overlay": "❓", "label": "たろう ？まい" }
+              "left": {
+                "base": "🏷️",
+                "count": 10,
+                "label": "ゆうこ 10まい"
+              },
+              "right": {
+                "base": "🏷️",
+                "count": 7,
+                "overlay": "❓",
+                "label": "たろう ？まい"
+              }
             },
             {
               "style": "merge",
-              "description": "10まいと 3まいを あわせる",
-              "left": { "base": "🏷️", "count": 10, "label": "10まい" },
-              "right": { "base": "🏷️", "count": 3, "label": "3まい" }
+              "description": "10まいと 3まいを たす",
+              "left": {
+                "base": "🏷️",
+                "count": 10,
+                "label": "10まい"
+              },
+              "right": {
+                "base": "🏷️",
+                "count": 3,
+                "label": "3まい"
+              }
             },
             {
               "style": "remove",
               "description": "10まいから 3まいを とる",
-              "left": { "base": "🏷️", "count": 10, "label": "10まい" },
+              "left": {
+                "base": "🏷️",
+                "count": 10,
+                "label": "10まい"
+              },
               "removeCount": 3
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "10 － 3",
-          "options": ["10 ＋ 3", "10 － 3", "3 ＋ 10"]
+          "correct": [
+            "10 － 3"
+          ],
+          "options": [
+            "10 ＋ 3",
+            "10 － 3",
+            "3 ＋ 10"
+          ]
         }
       }
     },
     {
       "id": "g1_q09",
       "text": "バスに おきゃくさんが のって いました。4にん おりたら 8にん に なりました。はじめに なんにん のって いましたか？",
-      "intent": "逆思考パターン（減少→元の数）：変化後の数から元の数を逆算する。減少の逆なので「たし算」を使うことを理解できるかを診断する。",
-      "explanation": "はじめの にんずうが わかりません。4にん おりたあと 8にん のこったので、はじめは 8＋4＝12にん でした。「のこり＋おりた＝はじめ」という かんがえかたです。",
+      "intent": "逆思考パターン2：減った後の数から元の数を逆算する",
+      "explanation": "のこった 8にんと おりた 4にんを たすと、はじめの にんずうが わかります。8＋4＝12にん でした。",
       "steps": {
         "context": {
-          "question": "はじめの おきゃくさんの かずは わかりますか？",
-          "correct": "わからない（？）",
-          "options": ["わからない（？）", "4にん", "8にん"]
+          "question": "はじめに なんにん のって いましたか？",
+          "correct": "12にん",
+          "options": [
+            "4にん",
+            "8にん",
+            "12にん"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -356,42 +606,73 @@
           "options": [
             {
               "style": "reverse",
-              "description": "はじめ ？にんから 4にん おりて 8にん のこった",
-              "left": { "base": "🧑", "count": 8, "label": "のこり 8にん" },
-              "right": { "base": "🏃", "count": 4, "label": "おりた 4にん" },
+              "description": "はじめ？にん → 4にん おりて 8にん のこった",
+              "left": {
+                "base": "🧑",
+                "count": 8,
+                "label": "のこり 8にん"
+              },
+              "right": {
+                "base": "🏃",
+                "count": 4,
+                "label": "おりた 4にん"
+              },
               "unknownSide": "left"
             },
             {
               "style": "remove",
               "description": "8にんから 4にんを とる",
-              "left": { "base": "🧑", "count": 8, "label": "8にん" },
+              "left": {
+                "base": "🧑",
+                "count": 8,
+                "label": "8にん"
+              },
               "removeCount": 4
             },
             {
               "style": "compare",
               "description": "8にんと 4にんを くらべる",
-              "left": { "base": "🧑", "count": 8, "label": "A" },
-              "right": { "base": "🏃", "count": 4, "label": "B" }
+              "left": {
+                "base": "🧑",
+                "count": 8,
+                "label": "A"
+              },
+              "right": {
+                "base": "🏃",
+                "count": 4,
+                "label": "B"
+              }
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "8 ＋ 4",
-          "options": ["8 ＋ 4", "8 － 4", "4 ＋ 8"]
+          "correct": [
+            "8 ＋ 4",
+            "4 ＋ 8"
+          ],
+          "options": [
+            "8 ＋ 4",
+            "4 ＋ 8",
+            "12"
+          ]
         }
       }
     },
     {
       "id": "g1_q10",
       "text": "かごに みかんが 5こ、りんごが 7こ はいって います。みかんと りんごは どちらが なんこ おおいですか？",
-      "intent": "求差（比較）パターン：2種類の物の数量を比べてどちらが多いかを問う。比較のひき算の典型問題。",
-      "explanation": "「どちらが おおい？」という ときは くらべています。おおいほうから すくないほうを ひくと さが わかります。7－5＝2こ りんごの ほうが おおいです。",
+      "intent": "求差比較パターン：2種類の量を比べるひき算",
+      "explanation": "おおいほうから すくないほうを ひくと さが わかります。7－5＝2こ りんごの ほうが おおいです。",
       "steps": {
         "context": {
           "question": "このおはなしで やっていることは なんですか？",
           "correct": "くらべる",
-          "options": ["くらべる", "あわせる", "へらす"]
+          "options": [
+            "くらべる",
+            "たす",
+            "へらす"
+          ]
         },
         "schema": {
           "question": "このおはなしの ようすを あらわしている ずは どれですか？",
@@ -400,27 +681,53 @@
             {
               "style": "compare",
               "description": "5こと 7こを くらべる",
-              "left": { "base": "🍊", "count": 5, "label": "みかん 5こ" },
-              "right": { "base": "🍎", "count": 7, "label": "りんご 7こ" }
+              "left": {
+                "base": "🍊",
+                "count": 5,
+                "label": "みかん 5こ"
+              },
+              "right": {
+                "base": "🍎",
+                "count": 7,
+                "label": "りんご 7こ"
+              }
             },
             {
               "style": "merge",
-              "description": "5こと 7こを あわせる",
-              "left": { "base": "🍊", "count": 5, "label": "みかん" },
-              "right": { "base": "🍎", "count": 7, "label": "りんご" }
+              "description": "5こと 7こを たす",
+              "left": {
+                "base": "🍊",
+                "count": 5,
+                "label": "みかん"
+              },
+              "right": {
+                "base": "🍎",
+                "count": 7,
+                "label": "りんご"
+              }
             },
             {
               "style": "remove",
               "description": "7こから 5こを とる",
-              "left": { "base": "🍎", "count": 7, "label": "7こ" },
+              "left": {
+                "base": "🍎",
+                "count": 7,
+                "label": "7こ"
+              },
               "removeCount": 5
             }
           ]
         },
         "formula": {
           "question": "ただしい しきを えらんでください",
-          "correct": "7 － 5",
-          "options": ["7 ＋ 5", "7 － 5", "5 ＋ 7"]
+          "correct": [
+            "7 － 5"
+          ],
+          "options": [
+            "7 ＋ 5",
+            "7 － 5",
+            "5 ＋ 7"
+          ]
         }
       }
     }

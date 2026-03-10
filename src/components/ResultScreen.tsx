@@ -12,9 +12,9 @@ interface Props {
 type StepKey = QuizStep;
 
 const STEP_LABELS: Record<StepKey, string> = {
-  context: 'じょうきょうはあく',
-  schema: 'ずかいせんたく',
-  formula: 'りっしきせんたく',
+  context: 'じょうきょうかくにん',
+  schema: 'ずをえらぶ',
+  formula: 'しきをえらぶ',
 };
 
 const STEP_EMOJI: Record<StepKey, string> = {

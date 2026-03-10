@@ -13,9 +13,9 @@ interface Props {
 type Phase = 'question' | 'explanation';
 
 const STEP_LABELS: Record<QuizStep, string> = {
-  context: 'ステップ1：じょうきょうはあく',
-  schema: 'ステップ2：ずかいせんたく',
-  formula: 'ステップ3：りっしきせんたく',
+  context: 'ステップ1：じょうきょうかくにん',
+  schema: 'ステップ2：ずをえらぶ',
+  formula: 'ステップ3：しきをえらぶ',
 };
 
 const STEP_ICONS: Record<QuizStep, string> = {
@@ -187,7 +187,7 @@ export const QuizFlow: React.FC<Props> = ({ questions, onComplete }) => {
               letterSpacing: 2,
             }}
           >
-            {q.steps.formula.correct}
+            {q.steps.formula.correct[0]}
           </div>
         </div>
 

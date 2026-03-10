@@ -348,48 +348,6 @@ export default function App() {
           ))}
         </div>
 
-        {/* How it works */}
-        <div
-          style={{
-            background: '#fff',
-            borderRadius: 20,
-            padding: 20,
-            marginBottom: 24,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-          }}
-        >
-          <div style={{ fontSize: 18, fontWeight: 'bold', color: '#555', marginBottom: 12 }}>
-            📖 どうやって やるの？
-          </div>
-          {[
-            { icon: '💬', step: 'ステップ1', label: 'じょうきょうは あく', desc: 'もんだいの ようすを えらぼう' },
-            { icon: '🖼️', step: 'ステップ2', label: 'ずかい せんたく', desc: 'おはなしに あった ずを えらぼう' },
-            { icon: '🔢', step: 'ステップ3', label: 'りっしき せんたく', desc: 'ただしい しきを えらぼう' },
-          ].map((s) => (
-            <div
-              key={s.step}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-                marginBottom: 10,
-                padding: '10px 14px',
-                background: '#f5f5f5',
-                borderRadius: 12,
-              }}
-            >
-              <span style={{ fontSize: 28 }}>{s.icon}</span>
-              <div>
-                <div style={{ fontSize: 13, color: '#888' }}>{s.step}</div>
-                <div style={{ fontSize: 18, fontWeight: 'bold', color: '#333' }}>
-                  {s.label}
-                </div>
-                <div style={{ fontSize: 14, color: '#666' }}>{s.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {/* Bottom actions */}
         <div
           style={{

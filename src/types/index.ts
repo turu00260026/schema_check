@@ -36,7 +36,7 @@ export interface SchemaStep {
 
 export interface FormulaStep {
   question: string;
-  correct: string;
+  correct: string[];   // 複数正解に対応（例：["7 ＋ 3", "3 ＋ 7"]）
   options: string[];
 }
 

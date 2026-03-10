@@ -9,9 +9,9 @@ interface Props {
 type StepKey = QuizStep;
 
 const STEP_LABELS: Record<StepKey, string> = {
-  context: 'じょうきょうはあく',
-  schema: 'ずかいせんたく',
-  formula: 'りっしきせんたく',
+  context: 'じょうきょうかくにん',
+  schema: 'ずをえらぶ',
+  formula: 'しきをえらぶ',
 };
 
 const STEP_COLORS: Record<StepKey, string> = {
@@ -32,37 +32,63 @@ function generateAdvice(
   const cp = pct(stepStats.context.correct, stepStats.context.total);
   const sp = pct(stepStats.schema.correct, stepStats.schema.total);
   const fp = pct(stepStats.formula.correct, stepStats.formula.total);
+  const hasData = stepStats.context.total > 0;
 
-  if (cp < 70) {
-    advice.push(
-      '💬 【じょうきょうはあく】が苦手なようです。文章を読んで「ふえた」「へった」「くらべた」を声に出して確認する練習をしましょう。'
-    );
+  if (!hasData) {
+    advice.push('📖 まずは何度か問題に挑戦して、得意・苦手なパターンを確認しましょう。');
+    return advice;
   }
-  if (sp < 70) {
-    advice.push(
-      '🖼️ 【ずかいせんたく】が苦手なようです。ブロックや積み木を実際に動かして、合わせる・引く・比べる動作を体で覚えましょう。'
-    );
-  }
-  if (fp < 70) {
-    advice.push(
-      '🔢 【りっしきせんたく（式）】が苦手なようです。状況と図が正しく選べていても式で迷うケースがあります。「合わせるなら＋、引くなら－」と繰り返し声に出して確認しましょう。'
-    );
-  }
-  if (cp >= 70 && sp < 70) {
-    advice.push(
-      '💡 状況は読めているのに図解でつまずいています。文章→図のつながりを絵に描きながら一緒に考えてみてください。'
-    );
-  }
-  if (sp >= 70 && fp < 70) {
-    advice.push(
-      '💡 図は正しく選べているのに式でミスしています。図を指さしながら「これはたし算？ひき算？」と声に出すと式と結びつきやすくなります。'
-    );
-  }
+
+  // 全体が優秀
   if (cp >= 80 && sp >= 80 && fp >= 80) {
     advice.push(
-      '🌟 すばらしい！3つのステップすべて高い正答率です。より難しい問題（2年生）にもチャレンジしてみましょう！'
+      '🌟 すばらしい成績です！「じょうきょうかくにん」「ずをえらぶ」「しきをえらぶ」の3ステップすべてで高い正答率を記録しています。文章題の構造をしっかり理解できている証拠です。より難しい問題（2年生）にもチャレンジしてみましょう！'
+    );
+    return advice;
+  }
+
+  // ステップ1（じょうきょうかくにん）が弱い
+  if (cp < 70) {
+    advice.push(
+      '💬 【じょうきょうかくにん】の正答率が低めです。このステップでは「数が増えたのか、減ったのか、比べているのか」を文章から読み取る力を測っています。\n\n👨‍👩‍👧 フォロー方法：問題文を一緒に音読しながら、「ここで何が起きているの？」と声に出して確認してみましょう。「〜しました」「〜になりました」などの動詞に注目するクセをつけると理解が深まります。'
     );
   }
+
+  // ステップ2（ずをえらぶ）が弱い
+  if (sp < 70) {
+    advice.push(
+      '🖼️ 【ずをえらぶ】の正答率が低めです。このステップでは、文章の状況を「たす・とる・くらべる」のどの図で表せるかを判断する力を測っています。\n\n👨‍👩‍👧 フォロー方法：ブロックやおはじきなど、実際に手で動かせるものを使って状況を再現してみましょう。「2つを合わせる」「一部をとる」「長さを並べて比べる」の3パターンを体を使って体験することが効果的です。'
+    );
+  }
+
+  // ステップ3（しきをえらぶ）が弱い
+  if (fp < 70) {
+    advice.push(
+      '🔢 【しきをえらぶ】の正答率が低めです。このステップでは、状況や図を正しく式（＋か－）に変換する力を測っています。\n\n👨‍👩‍👧 フォロー方法：「ふえる・あわせる→＋」「へる・とる・ちがい→－」という対応を日常会話の中で繰り返し確認しましょう。図を見ながら「この図は合わせているから＋だね」と声に出すと、図と式が結びつきやすくなります。'
+    );
+  }
+
+  // 状況は読めているが図が選べない
+  if (cp >= 70 && sp < 70) {
+    advice.push(
+      '💡 文章の状況は正しく読めているのに、それを図に変換するところでつまずいています。「ふえた」とわかっても、それがどんな図になるかが結びついていない状態です。問題文の内容を一緒に絵で描いてみると、図との対応が見えてきます。'
+    );
+  }
+
+  // 図は選べているが式が選べない
+  if (sp >= 70 && fp < 70) {
+    advice.push(
+      '💡 図は正しく選べているのに、式の選択でミスしています。図と式の対応がまだ自動化されていない段階です。正しく選んだ図を指さしながら「この図はたし算かな？ひき算かな？」と毎回声に出す習慣をつけると、式と結びつきやすくなります。'
+    );
+  }
+
+  // 状況も図も弱い（構造理解が根本から不足）
+  if (cp < 60 && sp < 60) {
+    advice.push(
+      '📌 状況の読み取りと図の選択、両方に課題があります。これは文章題の構造理解がまだ発展途上であることを示しています。まずは「ふえた話」「へった話」「くらべる話」の3種類のお話を日常会話で意識的に区別する練習から始めると効果的です。'
+    );
+  }
+
   if (advice.length === 0) {
     advice.push('📖 まずは何度か問題に挑戦して、得意・苦手なパターンを確認しましょう。');
   }
@@ -307,6 +333,64 @@ export const ParentDashboard: React.FC<Props> = ({ onClose }) => {
                 }}
               >
                 {a}
+              </div>
+            ))}
+          </div>
+
+          {/* 3-step explanation for parents */}
+          <div
+            style={{
+              background: '#e8eaf6',
+              borderRadius: 20,
+              padding: 20,
+              marginBottom: 24,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+            }}
+          >
+            <div
+              style={{ fontSize: 20, fontWeight: 'bold', color: '#283593', marginBottom: 12 }}
+            >
+              📘 3つのステップについて
+            </div>
+            {[
+              {
+                icon: '💬',
+                label: 'ステップ1：じょうきょうかくにん',
+                color: '#42a5f5',
+                body: '文章を読んで「数がふえた・へった・くらべている」のどの状況かを判断する力です。文章題を解く上で最初の入り口となる重要なスキルです。',
+              },
+              {
+                icon: '🖼️',
+                label: 'ステップ2：ずをえらぶ',
+                color: '#ab47bc',
+                body: '状況を「たす図・とる図・くらべる図」のどれで表すかを選ぶ力です。言葉のイメージを視覚化する力で、算数の概念理解の核心です。',
+              },
+              {
+                icon: '🔢',
+                label: 'ステップ3：しきをえらぶ',
+                color: '#26a69a',
+                body: '図に合った式（＋か－）を選ぶ力です。図から式への変換を正確にできることが、計算ミスを減らす鍵になります。',
+              },
+            ].map((s) => (
+              <div
+                key={s.label}
+                style={{
+                  display: 'flex',
+                  gap: 12,
+                  marginBottom: 10,
+                  padding: '12px 14px',
+                  background: '#fff',
+                  borderRadius: 12,
+                  borderLeft: `4px solid ${s.color}`,
+                }}
+              >
+                <span style={{ fontSize: 24, flexShrink: 0 }}>{s.icon}</span>
+                <div>
+                  <div style={{ fontSize: 15, fontWeight: 'bold', color: s.color, marginBottom: 4 }}>
+                    {s.label}
+                  </div>
+                  <div style={{ fontSize: 14, color: '#444', lineHeight: 1.6 }}>{s.body}</div>
+                </div>
               </div>
             ))}
           </div>

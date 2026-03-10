@@ -95,7 +95,7 @@ export const StepSchema: React.FC<Props> = ({ step, onAnswer }) => {
                 marginTop: 6,
                 fontSize: 13,
                 color: '#555',
-                maxWidth: 160,
+                whiteSpace: 'nowrap',
                 textAlign: 'center',
               }}
             >

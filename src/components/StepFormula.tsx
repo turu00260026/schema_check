@@ -26,7 +26,7 @@ export const StepFormula: React.FC<Props> = ({ step, onAnswer }) => {
     if (!selected) return;
     setConfirmed(true);
     setTimeout(() => {
-      onAnswer(selected === step.correct, selected);
+      onAnswer(step.correct.includes(selected), selected);
     }, 600);
   };
 
@@ -41,7 +41,7 @@ export const StepFormula: React.FC<Props> = ({ step, onAnswer }) => {
         bg = '#fff8e1';
       }
     } else {
-      if (opt === step.correct) {
+      if (step.correct.includes(opt)) {
         border = '3px solid #43a047';
         bg = '#e8f5e9';
       } else if (opt === selected) {
@@ -124,11 +124,11 @@ export const StepFormula: React.FC<Props> = ({ step, onAnswer }) => {
           style={{
             fontSize: 28,
             fontWeight: 'bold',
-            color: selected === step.correct ? '#2e7d32' : '#c62828',
+            color: step.correct.includes(selected ?? '') ? '#2e7d32' : '#c62828',
             marginTop: 8,
           }}
         >
-          {selected === step.correct ? '⭕ せいかい！' : '❌ ちがうよ'}
+          {step.correct.includes(selected ?? '') ? '⭕ せいかい！' : '❌ ちがうよ'}
         </div>
       )}
     </div>
