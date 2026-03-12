@@ -1,7 +1,7 @@
 // ============================================================
 // EmojiStack Schema types
 // ============================================================
-export type SchemaStyle = 'merge' | 'remove' | 'compare' | 'reverse' | 'groups' | 'tape';
+export type SchemaStyle = 'merge' | 'remove' | 'compare' | 'reverse' | 'groups' | 'tape' | 'hitsuzan';
 
 export interface EmojiGroup {
   base: string;
@@ -20,6 +20,14 @@ export interface SchemaOption {
   unknownSide?: 'left' | 'right'; // used in reverse
   groupCount?: number;     // used in groups: number of groups
   multiplier?: number;     // used in tape: multiplication factor
+  // used in hitsuzan:
+  hitsuzanTop?: number;      // top number in column calc
+  hitsuzanBottom?: number;   // bottom number
+  hitsuzanOp?: '+' | '-';   // operation
+  hitsuzanCarry?: boolean;   // show くり上がり mark (①) above tens
+  hitsuzanBorrow?: boolean;  // show くり下がり mark above tens
+  hitsuzanMisalign?: boolean;// bottom number misaligned (distractor)
+  hitsuzanResult?: string;   // result to display (e.g. "61", "51", "？")
 }
 
 // ============================================================

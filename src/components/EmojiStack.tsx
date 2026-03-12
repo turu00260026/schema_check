@@ -106,7 +106,11 @@ const CELL_SIZE = 28;
 
 export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false }) => {
   const size = compact ? 22 : CELL_SIZE;
-  const { style, left, right, removeCount, removeLabel, unknownSide, groupCount, multiplier } = option;
+  const {
+    style, left, right, removeCount, removeLabel, unknownSide, groupCount, multiplier,
+    hitsuzanTop, hitsuzanBottom, hitsuzanOp, hitsuzanCarry, hitsuzanBorrow,
+    hitsuzanMisalign, hitsuzanResult,
+  } = option;
 
   const containerStyle: React.CSSProperties = {
     padding: compact ? 8 : 12,
@@ -398,6 +402,93 @@ export const EmojiStack: React.FC<EmojiStackProps> = ({ option, compact = false 
     );
   }
 
+  // ── hitsuzan (ひっ算) ─────────────────────
+  if (style === 'hitsuzan') {
+    const hTop = hitsuzanTop ?? 0;
+    const hBottom = hitsuzanBottom ?? 0;
+    const hOp = hitsuzanOp ?? '+';
+    const hCarry = hitsuzanCarry ?? false;
+    const hBorrow = hitsuzanBorrow ?? false;
+    const hMisalign = hitsuzanMisalign ?? false;
+    const hResult = hitsuzanResult ?? '？';
+
+    const topTens = Math.floor(hTop / 10);
+    const topOnes = hTop % 10;
+    const bottomTens = Math.floor(hBottom / 10);
+    const bottomOnes = hBottom % 10;
+
+    const W = 28;
+    const H = 32;
+    const numSt: React.CSSProperties = {
+      width: W, height: H,
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      fontSize: 22, fontWeight: 'bold', color: '#212121',
+    };
+    const opSt: React.CSSProperties = {
+      width: W, height: H,
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+      fontSize: 18, fontWeight: 'bold', color: '#1565c0',
+    };
+
+    return (
+      <div style={{ ...containerStyle, border: '3px solid #78909c', background: '#f5f5f5', gap: 2 }}>
+        <div style={{ fontSize: 11, color: '#546e7a', marginBottom: 2 }}>ひっ算</div>
+
+        {/* Mark row (carry / borrow) */}
+        <div style={{ display: 'flex', height: 18 }}>
+          <div style={{ width: W }} />
+          <div style={{ width: W, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, color: '#e53935', fontWeight: 'bold' }}>
+            {hOp === '+' && hCarry ? '①' : hOp === '-' && hBorrow ? '↙' : '\u00a0'}
+          </div>
+          <div style={{ width: W }} />
+        </div>
+
+        {/* Top number */}
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: W }} />
+          <div style={numSt}>{topTens}</div>
+          <div style={numSt}>{topOnes}</div>
+        </div>
+
+        {/* Op + bottom number (misalign shifts bottom 1 col right) */}
+        <div style={{ display: 'flex' }}>
+          {hMisalign ? (
+            <>
+              <div style={{ width: W }} />
+              <div style={opSt}>{hOp === '+' ? '＋' : '－'}</div>
+              <div style={numSt}>{bottomTens}</div>
+              <div style={numSt}>{bottomOnes}</div>
+            </>
+          ) : (
+            <>
+              <div style={opSt}>{hOp === '+' ? '＋' : '－'}</div>
+              <div style={numSt}>{bottomTens}</div>
+              <div style={numSt}>{bottomOnes}</div>
+            </>
+          )}
+        </div>
+
+        {/* Divider */}
+        <div style={{ width: hMisalign ? W * 4 : W * 3, borderTop: '2px solid #37474f', margin: '1px 0' }} />
+
+        {/* Result */}
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: W }} />
+          {hResult === '？' ? (
+            <div style={{ ...numSt, width: W * 2, color: '#9e9e9e' }}>？</div>
+          ) : hResult.length >= 2 ? (
+            <>
+              <div style={numSt}>{hResult.charAt(hResult.length - 2)}</div>
+              <div style={numSt}>{hResult.charAt(hResult.length - 1)}</div>
+            </>
+          ) : (
+            <div style={{ ...numSt, width: W * 2 }}>{hResult}</div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return null;
 };
 
@@ -418,5 +509,7 @@ export function schemaStyleLabel(style: SchemaStyle): string {
       return 'グループにわける（かけ算）';
     case 'tape':
       return 'テープ図（何倍）';
+    case 'hitsuzan':
+      return 'ひっ算';
   }
 }

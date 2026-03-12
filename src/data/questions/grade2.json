@@ -4,296 +4,6 @@
   "questions": [
     {
       "id": "g2-q01",
-      "text": "えんぴつが 36本 あります。あとから 25本 もらいました。ぜんぶで なんぼん に なりましたか？",
-      "intent": "2桁＋2桁のたし算（くり上がりあり）のスキーマ理解",
-      "explanation": "2つの量を合わせる「たし算」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "ふえた",
-          "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "✏️",
-                "count": 6,
-                "label": "36本"
-              },
-              "right": {
-                "base": "✏️",
-                "count": 5,
-                "label": "25本"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "✏️",
-                "count": 8,
-                "label": "36本"
-              },
-              "removeCount": 5
-            },
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "✏️",
-                "count": 6,
-                "label": "36本"
-              },
-              "right": {
-                "base": "✏️",
-                "count": 5,
-                "label": "25本"
-              }
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "36 ＋ 25"
-          ],
-          "options": [
-            "36 ＋ 25",
-            "36 － 25",
-            "25 － 36"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q02",
-      "text": "きって が 52まい あります。43まい つかいました。なんまい のこって いますか？",
-      "intent": "2桁－2桁のひき算（くり下がりあり）のスキーマ理解",
-      "explanation": "使った分だけ減る「ひき算」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "へった",
-          "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 1,
-          "options": [
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "📮",
-                "count": 5,
-                "label": "52まい"
-              },
-              "right": {
-                "base": "📮",
-                "count": 4,
-                "label": "43まい"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "📮",
-                "count": 8,
-                "label": "52まい"
-              },
-              "removeCount": 4,
-              "removeLabel": "43まい つかう"
-            },
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "📮",
-                "count": 5,
-                "label": "52まい"
-              },
-              "right": {
-                "base": "📮",
-                "count": 4,
-                "label": "43まい"
-              }
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "52 － 43"
-          ],
-          "options": [
-            "52 ＋ 43",
-            "52 － 43",
-            "43 － 52"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q03",
-      "text": "あかい はなが 48本、しろい はなが 23本 あります。あかい はなは しろい はなより なんぼん おおい ですか？",
-      "intent": "2量を比べる「差を求める」ひき算のスキーマ理解",
-      "explanation": "2つの量を比べて差を求める「くらべるひき算」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "どちらが おおい",
-          "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "🌸",
-                "count": 6,
-                "label": "あか 48本"
-              },
-              "right": {
-                "base": "⬜",
-                "count": 4,
-                "label": "しろ 23本"
-              }
-            },
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "🌸",
-                "count": 6,
-                "label": "あか 48本"
-              },
-              "right": {
-                "base": "⬜",
-                "count": 4,
-                "label": "しろ 23本"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "🌸",
-                "count": 8,
-                "label": "48本"
-              },
-              "removeCount": 4
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "48 － 23"
-          ],
-          "options": [
-            "48 ＋ 23",
-            "48 － 23",
-            "23 － 48"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q04",
-      "text": "はこに りんごが はいって います。15こ たべたら 27こ のこりました。はじめに なんこ はいって いましたか？",
-      "intent": "「残り＋食べた＝最初」逆思考たし算のスキーマ理解",
-      "explanation": "残った数と減った数から最初の数を求める「逆思考」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "はじめの かずを もとめる",
-          "options": [
-            "ふえた",
-            "へった",
-            "はじめの かずを もとめる"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "reverse",
-              "description": "はじめの かず",
-              "left": {
-                "base": "🍎",
-                "count": 4,
-                "label": "？こ"
-              },
-              "right": {
-                "base": "🍎",
-                "count": 3,
-                "label": "15こ たべた"
-              },
-              "unknownSide": "left"
-            },
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "🍎",
-                "count": 4,
-                "label": "15こ"
-              },
-              "right": {
-                "base": "🍎",
-                "count": 3,
-                "label": "27こ"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "🍎",
-                "count": 8,
-                "label": "27こ"
-              },
-              "removeCount": 3
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "27 ＋ 15"
-          ],
-          "options": [
-            "27 ＋ 15",
-            "27 － 15",
-            "15 － 27"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q05",
       "text": "おさらに みかんが 4こずつ のっています。おさらが 5まい あります。みかんは ぜんぶで なんこ ですか？",
       "intent": "等しい量のまとまり（4×5）かけ算のスキーマ理解",
       "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
@@ -365,8 +75,8 @@
       }
     },
     {
-      "id": "g2-q06",
-      "text": "ふくろに あめが 6こずつ はいって います。3ふくろ あります。あめは ぜんぶで なんこ ですか？",
+      "id": "g2-q02",
+      "text": "ふくろに あめが 6こずつ はいっています。3ふくろ あります。あめは ぜんぶで なんこ ですか？",
       "intent": "等しい量のまとまり（6×3）かけ算のスキーマ理解",
       "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
       "steps": {
@@ -433,8 +143,8 @@
       }
     },
     {
-      "id": "g2-q07",
-      "text": "1れつに 3人が すわって います。7れつ あります。みんなで なん人 ですか？",
+      "id": "g2-q03",
+      "text": "1れつに 3人が すわっています。7れつ あります。みんなで なん人 ですか？",
       "intent": "等しい量のまとまり（3×7）かけ算のスキーマ理解",
       "explanation": "1列ごとに同じ人数がいる、かけ算の場面です。",
       "steps": {
@@ -505,8 +215,8 @@
       }
     },
     {
-      "id": "g2-q08",
-      "text": "かごに たまごが 4こずつ はいって います。かごが 6こ あります。たまごは ぜんぶで なんこ ですか？",
+      "id": "g2-q04",
+      "text": "かごに たまごが 4こずつ はいっています。かごが 6こ あります。たまごは ぜんぶで なんこ ですか？",
       "intent": "等しい量のまとまり（4×6）かけ算のスキーマ理解",
       "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
       "steps": {
@@ -573,8 +283,223 @@
       }
     },
     {
-      "id": "g2-q09",
-      "text": "あかい リボンが 7cm あります。あおい リボンは あかい リボンの 3ばい です。あおい リボンは なん cm ですか？",
+      "id": "g2-q05",
+      "text": "じどうしゃが 1だんに 5だい ならんでいます。6だん あります。ぜんぶで なんだい ですか？",
+      "intent": "等しい量のまとまり（5×6）かけ算のスキーマ理解",
+      "explanation": "同じ台数ずつの列がある、かけ算の場面です。",
+      "steps": {
+        "context": {
+          "question": "この もんだいは どんな ばめん？",
+          "correct": "おなじかずの まとまり",
+          "options": [
+            "ふえた",
+            "おなじかずの まとまり",
+            "なんばい"
+          ]
+        },
+        "schema": {
+          "question": "どの ずが あっている？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "groups",
+              "description": "グループ",
+              "left": {
+                "base": "🚗",
+                "count": 5,
+                "label": "5だいずつ"
+              },
+              "groupCount": 6
+            },
+            {
+              "style": "compare",
+              "description": "くらべる",
+              "left": {
+                "base": "🚗",
+                "count": 5,
+                "label": "5だい"
+              },
+              "right": {
+                "base": "🚗",
+                "count": 6,
+                "label": "6だん"
+              }
+            },
+            {
+              "style": "merge",
+              "description": "たす",
+              "left": {
+                "base": "🚗",
+                "count": 5,
+                "label": "5だい"
+              },
+              "right": {
+                "base": "🚗",
+                "count": 6,
+                "label": "6だい"
+              }
+            }
+          ]
+        },
+        "formula": {
+          "question": "しきは どれ？",
+          "correct": [
+            "5 × 6"
+          ],
+          "options": [
+            "5 × 6",
+            "5 ＋ 6",
+            "6 × 5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q06",
+      "text": "はこに チョコレートが 7こずつ はいっています。4はこ あります。チョコレートは ぜんぶで なんこ ですか？",
+      "intent": "等しい量のまとまり（7×4）かけ算のスキーマ理解",
+      "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
+      "steps": {
+        "context": {
+          "question": "この もんだいは どんな ばめん？",
+          "correct": "おなじかずの まとまり",
+          "options": [
+            "ふえた",
+            "おなじかずの まとまり",
+            "なんばい"
+          ]
+        },
+        "schema": {
+          "question": "どの ずが あっている？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "groups",
+              "description": "グループ",
+              "left": {
+                "base": "🍫",
+                "count": 7,
+                "label": "7こずつ"
+              },
+              "groupCount": 4
+            },
+            {
+              "style": "tape",
+              "description": "テープ図",
+              "left": {
+                "base": "🍫",
+                "count": 7,
+                "label": "7こ"
+              },
+              "right": {
+                "label": "？こ"
+              },
+              "multiplier": 4
+            },
+            {
+              "style": "compare",
+              "description": "くらべる",
+              "left": {
+                "base": "🍫",
+                "count": 7,
+                "label": "7こ"
+              },
+              "right": {
+                "base": "🍫",
+                "count": 4,
+                "label": "4はこ"
+              }
+            }
+          ]
+        },
+        "formula": {
+          "question": "しきは どれ？",
+          "correct": [
+            "7 × 4"
+          ],
+          "options": [
+            "7 × 4",
+            "7 ＋ 4",
+            "4 × 7"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q07",
+      "text": "1つの テーブルに いすが 3きゃく あります。テーブルが 8つ あります。いすは ぜんぶで なんきゃく ですか？",
+      "intent": "等しい量のまとまり（3×8）かけ算のスキーマ理解",
+      "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
+      "steps": {
+        "context": {
+          "question": "この もんだいは どんな ばめん？",
+          "correct": "おなじかずの まとまり",
+          "options": [
+            "ふえた",
+            "おなじかずの まとまり",
+            "どちらが おおい"
+          ]
+        },
+        "schema": {
+          "question": "どの ずが あっている？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "groups",
+              "description": "グループ",
+              "left": {
+                "base": "🪑",
+                "count": 3,
+                "label": "3きゃくずつ"
+              },
+              "groupCount": 8
+            },
+            {
+              "style": "merge",
+              "description": "たす",
+              "left": {
+                "base": "🪑",
+                "count": 3,
+                "label": "3きゃく"
+              },
+              "right": {
+                "base": "🪑",
+                "count": 8,
+                "label": "8きゃく"
+              }
+            },
+            {
+              "style": "compare",
+              "description": "くらべる",
+              "left": {
+                "base": "🪑",
+                "count": 3,
+                "label": "3きゃく"
+              },
+              "right": {
+                "base": "🪑",
+                "count": 8,
+                "label": "8つ"
+              }
+            }
+          ]
+        },
+        "formula": {
+          "question": "しきは どれ？",
+          "correct": [
+            "3 × 8"
+          ],
+          "options": [
+            "3 × 8",
+            "3 ＋ 8",
+            "8 × 3"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q08",
+      "text": "あかい リボンが 7cm あります。あおい リボンは あかい リボンの 3ばい です。あおい リボンは なんcm ですか？",
       "intent": "「何倍」テープ図で表す（7×3）のスキーマ理解",
       "explanation": "基準の量の「3倍」を求めるかけ算の場面です。",
       "steps": {
@@ -644,7 +569,7 @@
       }
     },
     {
-      "id": "g2-q10",
+      "id": "g2-q09",
       "text": "ねこが 8ひき います。いぬは ねこの 2ばい います。いぬは なんびき ですか？",
       "intent": "「何倍」テープ図で表す（8×2）のスキーマ理解",
       "explanation": "基準の量の「2倍」を求めるかけ算の場面です。",
@@ -719,224 +644,7 @@
       }
     },
     {
-      "id": "g2-q11",
-      "text": "テープが 2本 あります。1本目は 35cm、2本目は 48cm です。あわせると なん cm ですか？",
-      "intent": "長さの単位cmを用いたたし算のスキーマ理解",
-      "explanation": "2つの長さを合わせる「たし算」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "ふえた",
-          "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "📏",
-                "count": 4,
-                "label": "35cm"
-              },
-              "right": {
-                "base": "📏",
-                "count": 5,
-                "label": "48cm"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "📏",
-                "count": 6,
-                "label": "35cm"
-              },
-              "removeCount": 4
-            },
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "📏",
-                "count": 4,
-                "label": "35cm"
-              },
-              "right": {
-                "base": "📏",
-                "count": 5,
-                "label": "48cm"
-              }
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "35 ＋ 48"
-          ],
-          "options": [
-            "35 ＋ 48",
-            "48 － 35",
-            "35 × 48"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q12",
-      "text": "えんぴつAは 16cm、えんぴつBは 11cm です。Aは Bより なん cm ながい ですか？",
-      "intent": "長さの差を求めるひき算のスキーマ理解",
-      "explanation": "2本の長さを比べて差を求める「くらべるひき算」の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "どちらが おおい",
-          "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "✏️",
-                "count": 5,
-                "label": "A 16cm"
-              },
-              "right": {
-                "base": "✏️",
-                "count": 3,
-                "label": "B 11cm"
-              }
-            },
-            {
-              "style": "merge",
-              "description": "たす",
-              "left": {
-                "base": "✏️",
-                "count": 5,
-                "label": "16cm"
-              },
-              "right": {
-                "base": "✏️",
-                "count": 3,
-                "label": "11cm"
-              }
-            },
-            {
-              "style": "remove",
-              "description": "へらす",
-              "left": {
-                "base": "✏️",
-                "count": 8,
-                "label": "16cm"
-              },
-              "removeCount": 4
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "16 － 11"
-          ],
-          "options": [
-            "16 ＋ 11",
-            "16 － 11",
-            "11 － 16"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q13",
-      "text": "じどうしゃが 1だんに 5だい ならんで います。6だん あります。ぜんぶで なんだい ですか？",
-      "intent": "等しい量のまとまり（5×6）かけ算のスキーマ理解",
-      "explanation": "同じ台数ずつの列がある、かけ算の場面です。",
-      "steps": {
-        "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "おなじかずの まとまり",
-          "options": [
-            "ふえた",
-            "おなじかずの まとまり",
-            "なんばい"
-          ]
-        },
-        "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 0,
-          "options": [
-            {
-              "style": "groups",
-              "description": "グループ",
-              "left": {
-                "base": "🚗",
-                "count": 5,
-                "label": "5だいずつ"
-              },
-              "groupCount": 6
-            },
-            {
-              "style": "compare",
-              "description": "くらべる",
-              "left": {
-                "base": "🚗",
-                "count": 5,
-                "label": "5だい"
-              },
-              "right": {
-                "base": "🚗",
-                "count": 6,
-                "label": "6だん"
-              }
-            },
-            {
-              "style": "reverse",
-              "description": "はじめの かず",
-              "left": {
-                "base": "🚗",
-                "count": 4,
-                "label": "？だい"
-              },
-              "right": {
-                "base": "🚗",
-                "count": 3,
-                "label": "5だい"
-              },
-              "unknownSide": "left"
-            }
-          ]
-        },
-        "formula": {
-          "question": "しきは どれ？",
-          "correct": [
-            "5 × 6"
-          ],
-          "options": [
-            "5 × 6",
-            "5 ＋ 6",
-            "6 × 5"
-          ]
-        }
-      }
-    },
-    {
-      "id": "g2-q14",
+      "id": "g2-q10",
       "text": "きいろい かみが 6まい あります。あかい かみは きいろい かみの 4ばい あります。あかい かみは なんまい ですか？",
       "intent": "「何倍」テープ図で表す（6×4）のスキーマ理解",
       "explanation": "基準の量の「4倍」を求めるかけ算の場面です。",
@@ -1007,435 +715,731 @@
       }
     },
     {
-      "id": "g2-q15",
-      "text": "おかしが 124こ あります。あとから 53こ もらいました。ぜんぶで なんこ ですか？",
-      "intent": "100を超える数のたし算スキーマ理解",
-      "explanation": "2つの量を合わせる「たし算」の場面です（100より大きい数）。",
+      "id": "g2-q11",
+      "text": "36＋25 の ひっ算を します。一の位は 6＋5＝11 になります。どのように けいさんすれば いいでしょう？",
+      "intent": "くり上がりのあるたし算（36+25）ひっ算の理解",
+      "explanation": "一の位が10以上になったとき、十の位に1くり上げます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "ふえた",
+          "question": "一の位を たすと どうなる？",
+          "correct": "くり上がる",
           "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
+            "くり上がる",
+            "そのまま書ける",
+            "くり下がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
+          "question": "どのひっ算が ただしい？",
           "correctIndex": 0,
           "options": [
             {
-              "style": "merge",
-              "description": "たす",
+              "style": "hitsuzan",
+              "description": "くり上がりあり",
               "left": {
-                "base": "🍡",
-                "count": 5,
-                "label": "124こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "🍡",
-                "count": 3,
-                "label": "53こ"
-              }
+              "hitsuzanTop": 36,
+              "hitsuzanBottom": 25,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": true,
+              "hitsuzanResult": "61"
             },
             {
-              "style": "remove",
-              "description": "へらす",
+              "style": "hitsuzan",
+              "description": "くり上がりなし？",
               "left": {
-                "base": "🍡",
-                "count": 8,
-                "label": "124こ"
+                "base": "",
+                "count": 0
               },
-              "removeCount": 3
+              "hitsuzanTop": 36,
+              "hitsuzanBottom": 25,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": false,
+              "hitsuzanResult": "51"
             },
             {
-              "style": "compare",
-              "description": "くらべる",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "🍡",
-                "count": 5,
-                "label": "124こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "🍡",
-                "count": 3,
-                "label": "53こ"
-              }
+              "hitsuzanTop": 36,
+              "hitsuzanBottom": 25,
+              "hitsuzanOp": "+",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "124 ＋ 53"
+            "6 ＋ 5 ＝ 11（くり上がる）"
           ],
           "options": [
-            "124 ＋ 53",
-            "124 － 53",
-            "53 ＋ 124"
+            "6 ＋ 5 ＝ 11（くり上がる）",
+            "6 ＋ 5 ＝ 1（そのまま）",
+            "6 － 5 ＝ 1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q12",
+      "text": "47＋38 の ひっ算を します。一の位は 7＋8＝15 になります。どのように けいさんすれば いいでしょう？",
+      "intent": "くり上がりのあるたし算（47+38）ひっ算の理解",
+      "explanation": "一の位が10以上になったとき、十の位に1くり上げます。",
+      "steps": {
+        "context": {
+          "question": "一の位を たすと どうなる？",
+          "correct": "くり上がる",
+          "options": [
+            "くり上がる",
+            "そのまま書ける",
+            "くり下がる"
+          ]
+        },
+        "schema": {
+          "question": "どのひっ算が ただしい？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりあり",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 47,
+              "hitsuzanBottom": 38,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": true,
+              "hitsuzanResult": "85"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりなし？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 47,
+              "hitsuzanBottom": 38,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": false,
+              "hitsuzanResult": "75"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 47,
+              "hitsuzanBottom": 38,
+              "hitsuzanOp": "+",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
+            }
+          ]
+        },
+        "formula": {
+          "question": "一の位の けいさんは どれが ただしい？",
+          "correct": [
+            "7 ＋ 8 ＝ 15（くり上がる）"
+          ],
+          "options": [
+            "7 ＋ 8 ＝ 15（くり上がる）",
+            "7 ＋ 8 ＝ 5（そのまま）",
+            "8 － 7 ＝ 1"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q13",
+      "text": "54＋29 の ひっ算を します。一の位は 4＋9＝13 になります。どのように けいさんすれば いいでしょう？",
+      "intent": "くり上がりのあるたし算（54+29）ひっ算の理解",
+      "explanation": "一の位が10以上になったとき、十の位に1くり上げます。",
+      "steps": {
+        "context": {
+          "question": "一の位を たすと どうなる？",
+          "correct": "くり上がる",
+          "options": [
+            "くり上がる",
+            "そのまま書ける",
+            "くり下がる"
+          ]
+        },
+        "schema": {
+          "question": "どのひっ算が ただしい？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりあり",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 54,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": true,
+              "hitsuzanResult": "83"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりなし？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 54,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": false,
+              "hitsuzanResult": "73"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 54,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
+            }
+          ]
+        },
+        "formula": {
+          "question": "一の位の けいさんは どれが ただしい？",
+          "correct": [
+            "4 ＋ 9 ＝ 13（くり上がる）"
+          ],
+          "options": [
+            "4 ＋ 9 ＝ 13（くり上がる）",
+            "4 ＋ 9 ＝ 3（そのまま）",
+            "9 － 4 ＝ 5"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q14",
+      "text": "28＋56 の ひっ算を します。一の位は 8＋6＝14 になります。どのように けいさんすれば いいでしょう？",
+      "intent": "くり上がりのあるたし算（28+56）ひっ算の理解",
+      "explanation": "一の位が10以上になったとき、十の位に1くり上げます。",
+      "steps": {
+        "context": {
+          "question": "一の位を たすと どうなる？",
+          "correct": "くり上がる",
+          "options": [
+            "くり上がる",
+            "そのまま書ける",
+            "くり下がる"
+          ]
+        },
+        "schema": {
+          "question": "どのひっ算が ただしい？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりあり",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 28,
+              "hitsuzanBottom": 56,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": true,
+              "hitsuzanResult": "84"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりなし？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 28,
+              "hitsuzanBottom": 56,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": false,
+              "hitsuzanResult": "74"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 28,
+              "hitsuzanBottom": 56,
+              "hitsuzanOp": "+",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
+            }
+          ]
+        },
+        "formula": {
+          "question": "一の位の けいさんは どれが ただしい？",
+          "correct": [
+            "8 ＋ 6 ＝ 14（くり上がる）"
+          ],
+          "options": [
+            "8 ＋ 6 ＝ 14（くり上がる）",
+            "8 ＋ 6 ＝ 4（そのまま）",
+            "8 － 6 ＝ 2"
+          ]
+        }
+      }
+    },
+    {
+      "id": "g2-q15",
+      "text": "63＋29 の ひっ算を します。一の位は 3＋9＝12 になります。どのように けいさんすれば いいでしょう？",
+      "intent": "くり上がりのあるたし算（63+29）ひっ算の理解",
+      "explanation": "一の位が10以上になったとき、十の位に1くり上げます。",
+      "steps": {
+        "context": {
+          "question": "一の位を たすと どうなる？",
+          "correct": "くり上がる",
+          "options": [
+            "くり上がる",
+            "そのまま書ける",
+            "くり下がる"
+          ]
+        },
+        "schema": {
+          "question": "どのひっ算が ただしい？",
+          "correctIndex": 0,
+          "options": [
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりあり",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 63,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": true,
+              "hitsuzanResult": "92"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くり上がりなし？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 63,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanCarry": false,
+              "hitsuzanResult": "82"
+            },
+            {
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
+              "left": {
+                "base": "",
+                "count": 0
+              },
+              "hitsuzanTop": 63,
+              "hitsuzanBottom": 29,
+              "hitsuzanOp": "+",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
+            }
+          ]
+        },
+        "formula": {
+          "question": "一の位の けいさんは どれが ただしい？",
+          "correct": [
+            "3 ＋ 9 ＝ 12（くり上がる）"
+          ],
+          "options": [
+            "3 ＋ 9 ＝ 12（くり上がる）",
+            "3 ＋ 9 ＝ 2（そのまま）",
+            "9 － 3 ＝ 6"
           ]
         }
       }
     },
     {
       "id": "g2-q16",
-      "text": "シールが 150まい あります。67まい つかいました。なんまい のこって いますか？",
-      "intent": "100を超えるひき算スキーマ理解",
-      "explanation": "使った分だけ減る「ひき算」の場面です（100より大きい数）。",
+      "text": "53－27 の ひっ算を します。一の位は 3 から 7 は ひけません。どのように けいさんすれば いいでしょう？",
+      "intent": "くり下がりのあるひき算（53-27）ひっ算の理解",
+      "explanation": "一の位が足りないとき、十の位から10を借りてひきます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "へった",
+          "question": "一の位を ひくと どうなる？",
+          "correct": "くり下がる",
           "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
+            "くり下がる",
+            "そのまま引ける",
+            "くり上がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
-          "correctIndex": 1,
+          "question": "どのひっ算が ただしい？",
+          "correctIndex": 0,
           "options": [
             {
-              "style": "merge",
-              "description": "たす",
+              "style": "hitsuzan",
+              "description": "くり下がりあり",
               "left": {
-                "base": "⭐",
-                "count": 5,
-                "label": "150まい"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "⭐",
-                "count": 3,
-                "label": "67まい"
-              }
+              "hitsuzanTop": 53,
+              "hitsuzanBottom": 27,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": true,
+              "hitsuzanResult": "26"
             },
             {
-              "style": "remove",
-              "description": "へらす",
+              "style": "hitsuzan",
+              "description": "くり下がりなし？",
               "left": {
-                "base": "⭐",
-                "count": 8,
-                "label": "150まい"
+                "base": "",
+                "count": 0
               },
-              "removeCount": 4,
-              "removeLabel": "67まい つかう"
+              "hitsuzanTop": 53,
+              "hitsuzanBottom": 27,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": false,
+              "hitsuzanResult": "34"
             },
             {
-              "style": "compare",
-              "description": "くらべる",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "⭐",
-                "count": 5,
-                "label": "150まい"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "⭐",
-                "count": 3,
-                "label": "67まい"
-              }
+              "hitsuzanTop": 53,
+              "hitsuzanBottom": 27,
+              "hitsuzanOp": "-",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "150 － 67"
+            "13 ー 7 ＝ 6（くり下がる）"
           ],
           "options": [
-            "150 ＋ 67",
-            "150 － 67",
-            "67 － 150"
+            "13 ー 7 ＝ 6（くり下がる）",
+            "3 ー 7 はできない",
+            "7 ー 3 ＝ 4"
           ]
         }
       }
     },
     {
       "id": "g2-q17",
-      "text": "かごに ボールが はいって います。24こ いれたら 61こ に なりました。はじめに なんこ はいって いましたか？",
-      "intent": "「最後の数－加えた数＝最初」逆思考ひき算のスキーマ理解",
-      "explanation": "最後の数と加えた数から最初の数を求める「逆思考」の場面です。",
+      "text": "72－45 の ひっ算を します。一の位は 2 から 5 は ひけません。どのように けいさんすれば いいでしょう？",
+      "intent": "くり下がりのあるひき算（72-45）ひっ算の理解",
+      "explanation": "一の位が足りないとき、十の位から10を借りてひきます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "はじめの かずを もとめる",
+          "question": "一の位を ひくと どうなる？",
+          "correct": "くり下がる",
           "options": [
-            "ふえた",
-            "へった",
-            "はじめの かずを もとめる"
+            "くり下がる",
+            "そのまま引ける",
+            "くり上がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
+          "question": "どのひっ算が ただしい？",
           "correctIndex": 0,
           "options": [
             {
-              "style": "reverse",
-              "description": "はじめの かず",
+              "style": "hitsuzan",
+              "description": "くり下がりあり",
               "left": {
-                "base": "⚽",
-                "count": 4,
-                "label": "？こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "⚽",
-                "count": 3,
-                "label": "24こ いれた"
-              },
-              "unknownSide": "left"
+              "hitsuzanTop": 72,
+              "hitsuzanBottom": 45,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": true,
+              "hitsuzanResult": "27"
             },
             {
-              "style": "merge",
-              "description": "たす",
+              "style": "hitsuzan",
+              "description": "くり下がりなし？",
               "left": {
-                "base": "⚽",
-                "count": 4,
-                "label": "24こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "⚽",
-                "count": 5,
-                "label": "61こ"
-              }
+              "hitsuzanTop": 72,
+              "hitsuzanBottom": 45,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": false,
+              "hitsuzanResult": "33"
             },
             {
-              "style": "remove",
-              "description": "へらす",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "⚽",
-                "count": 8,
-                "label": "61こ"
+                "base": "",
+                "count": 0
               },
-              "removeCount": 3
+              "hitsuzanTop": 72,
+              "hitsuzanBottom": 45,
+              "hitsuzanOp": "-",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "61 － 24"
+            "12 ー 5 ＝ 7（くり下がる）"
           ],
           "options": [
-            "61 ＋ 24",
-            "61 － 24",
-            "24 － 61"
+            "12 ー 5 ＝ 7（くり下がる）",
+            "2 ー 5 はできない",
+            "5 ー 2 ＝ 3"
           ]
         }
       }
     },
     {
       "id": "g2-q18",
-      "text": "はこに チョコレートが 7こずつ はいって います。4はこ あります。チョコレートは ぜんぶで なんこ ですか？",
-      "intent": "等しい量のまとまり（7×4）かけ算のスキーマ理解",
-      "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
+      "text": "84－37 の ひっ算を します。一の位は 4 から 7 は ひけません。どのように けいさんすれば いいでしょう？",
+      "intent": "くり下がりのあるひき算（84-37）ひっ算の理解",
+      "explanation": "一の位が足りないとき、十の位から10を借りてひきます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "おなじかずの まとまり",
+          "question": "一の位を ひくと どうなる？",
+          "correct": "くり下がる",
           "options": [
-            "ふえた",
-            "おなじかずの まとまり",
-            "なんばい"
+            "くり下がる",
+            "そのまま引ける",
+            "くり上がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
+          "question": "どのひっ算が ただしい？",
           "correctIndex": 0,
           "options": [
             {
-              "style": "groups",
-              "description": "グループ",
+              "style": "hitsuzan",
+              "description": "くり下がりあり",
               "left": {
-                "base": "🍫",
-                "count": 7,
-                "label": "7こずつ"
+                "base": "",
+                "count": 0
               },
-              "groupCount": 4
+              "hitsuzanTop": 84,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": true,
+              "hitsuzanResult": "47"
             },
             {
-              "style": "tape",
-              "description": "テープ図",
+              "style": "hitsuzan",
+              "description": "くり下がりなし？",
               "left": {
-                "base": "🍫",
-                "count": 7,
-                "label": "7こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "label": "？こ"
-              },
-              "multiplier": 4
+              "hitsuzanTop": 84,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": false,
+              "hitsuzanResult": "53"
             },
             {
-              "style": "compare",
-              "description": "くらべる",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "🍫",
-                "count": 7,
-                "label": "7こ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "🍫",
-                "count": 4,
-                "label": "4はこ"
-              }
+              "hitsuzanTop": 84,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "7 × 4"
+            "14 ー 7 ＝ 7（くり下がる）"
           ],
           "options": [
-            "7 × 4",
-            "7 ＋ 4",
-            "4 × 7"
+            "14 ー 7 ＝ 7（くり下がる）",
+            "4 ー 7 はできない",
+            "7 ー 4 ＝ 3"
           ]
         }
       }
     },
     {
       "id": "g2-q19",
-      "text": "1つの テーブルに いすが 3きゃく あります。テーブルが 8つ あります。いすは ぜんぶで なんきゃく ですか？",
-      "intent": "等しい量のまとまり（3×8）かけ算のスキーマ理解",
-      "explanation": "同じ数ずつのまとまりを合わせるかけ算の場面です。",
+      "text": "91－37 の ひっ算を します。一の位は 1 から 7 は ひけません。どのように けいさんすれば いいでしょう？",
+      "intent": "くり下がりのあるひき算（91-37）ひっ算の理解",
+      "explanation": "一の位が足りないとき、十の位から10を借りてひきます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "おなじかずの まとまり",
+          "question": "一の位を ひくと どうなる？",
+          "correct": "くり下がる",
           "options": [
-            "ふえた",
-            "おなじかずの まとまり",
-            "どちらが おおい"
+            "くり下がる",
+            "そのまま引ける",
+            "くり上がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
+          "question": "どのひっ算が ただしい？",
           "correctIndex": 0,
           "options": [
             {
-              "style": "groups",
-              "description": "グループ",
+              "style": "hitsuzan",
+              "description": "くり下がりあり",
               "left": {
-                "base": "🪑",
-                "count": 3,
-                "label": "3きゃくずつ"
+                "base": "",
+                "count": 0
               },
-              "groupCount": 8
+              "hitsuzanTop": 91,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": true,
+              "hitsuzanResult": "54"
             },
             {
-              "style": "reverse",
-              "description": "はじめの かず",
+              "style": "hitsuzan",
+              "description": "くり下がりなし？",
               "left": {
-                "base": "🪑",
-                "count": 4,
-                "label": "？きゃく"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "🪑",
-                "count": 3,
-                "label": "3きゃく"
-              },
-              "unknownSide": "left"
+              "hitsuzanTop": 91,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": false,
+              "hitsuzanResult": "66"
             },
             {
-              "style": "merge",
-              "description": "たす",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "🪑",
-                "count": 3,
-                "label": "3きゃく"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "🪑",
-                "count": 8,
-                "label": "8きゃく"
-              }
+              "hitsuzanTop": 91,
+              "hitsuzanBottom": 37,
+              "hitsuzanOp": "-",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "3 × 8"
+            "11 ー 7 ＝ 4（くり下がる）"
           ],
           "options": [
-            "3 × 8",
-            "3 ＋ 8",
-            "8 × 3"
+            "11 ー 7 ＝ 4（くり下がる）",
+            "1 ー 7 はできない",
+            "7 ー 1 ＝ 6"
           ]
         }
       }
     },
     {
       "id": "g2-q20",
-      "text": "本だなに ほんが 73さつ あります。もうひとつの ほんだなは 28さつ すくない です。もうひとつの ほんだなには なんさつ ありますか？",
-      "intent": "比べて差を求める逆思考のひき算スキーマ理解",
-      "explanation": "「少ない」ことから、基準の量から差を引く「ひき算」の場面です。",
+      "text": "64－28 の ひっ算を します。一の位は 4 から 8 は ひけません。どのように けいさんすれば いいでしょう？",
+      "intent": "くり下がりのあるひき算（64-28）ひっ算の理解",
+      "explanation": "一の位が足りないとき、十の位から10を借りてひきます。",
       "steps": {
         "context": {
-          "question": "この もんだいは どんな ばめん？",
-          "correct": "どちらが おおい",
+          "question": "一の位を ひくと どうなる？",
+          "correct": "くり下がる",
           "options": [
-            "ふえた",
-            "へった",
-            "どちらが おおい"
+            "くり下がる",
+            "そのまま引ける",
+            "くり上がる"
           ]
         },
         "schema": {
-          "question": "どの ずが あっている？",
+          "question": "どのひっ算が ただしい？",
           "correctIndex": 0,
           "options": [
             {
-              "style": "compare",
-              "description": "くらべる",
+              "style": "hitsuzan",
+              "description": "くり下がりあり",
               "left": {
-                "base": "📚",
-                "count": 6,
-                "label": "73さつ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "📚",
-                "count": 4,
-                "label": "？さつ"
-              }
+              "hitsuzanTop": 64,
+              "hitsuzanBottom": 28,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": true,
+              "hitsuzanResult": "36"
             },
             {
-              "style": "merge",
-              "description": "たす",
+              "style": "hitsuzan",
+              "description": "くり下がりなし？",
               "left": {
-                "base": "📚",
-                "count": 6,
-                "label": "73さつ"
+                "base": "",
+                "count": 0
               },
-              "right": {
-                "base": "📚",
-                "count": 4,
-                "label": "28さつ"
-              }
+              "hitsuzanTop": 64,
+              "hitsuzanBottom": 28,
+              "hitsuzanOp": "-",
+              "hitsuzanBorrow": false,
+              "hitsuzanResult": "44"
             },
             {
-              "style": "remove",
-              "description": "へらす",
+              "style": "hitsuzan",
+              "description": "くらいがちがう？",
               "left": {
-                "base": "📚",
-                "count": 8,
-                "label": "73さつ"
+                "base": "",
+                "count": 0
               },
-              "removeCount": 4
+              "hitsuzanTop": 64,
+              "hitsuzanBottom": 28,
+              "hitsuzanOp": "-",
+              "hitsuzanMisalign": true,
+              "hitsuzanResult": "？"
             }
           ]
         },
         "formula": {
-          "question": "しきは どれ？",
+          "question": "一の位の けいさんは どれが ただしい？",
           "correct": [
-            "73 － 28"
+            "14 ー 8 ＝ 6（くり下がる）"
           ],
           "options": [
-            "73 ＋ 28",
-            "73 － 28",
-            "28 － 73"
+            "14 ー 8 ＝ 6（くり下がる）",
+            "4 ー 8 はできない",
+            "8 ー 4 ＝ 4"
           ]
         }
       }
