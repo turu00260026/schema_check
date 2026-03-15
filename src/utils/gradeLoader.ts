@@ -7,10 +7,12 @@ import type { GradeData } from '../types';
  */
 import grade1 from '../data/questions/grade1.json';
 import grade2 from '../data/questions/grade2.json';
+import grade3 from '../data/questions/grade3.json';
 
 const GRADE_FILES: Record<string, GradeData> = {
   grade1: grade1 as GradeData,
   grade2: grade2 as GradeData,
+  grade3: grade3 as GradeData,
 };
 
 export function loadAllGrades(): GradeData[] {

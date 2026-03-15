@@ -1,7 +1,10 @@
 // ============================================================
 // EmojiStack Schema types
 // ============================================================
-export type SchemaStyle = 'merge' | 'remove' | 'compare' | 'reverse' | 'groups' | 'tape' | 'hitsuzan';
+export type SchemaStyle =
+  | 'merge' | 'remove' | 'compare' | 'reverse'
+  | 'groups' | 'tape' | 'hitsuzan'
+  | 'divide-equal' | 'divide-group' | 'remainder' | 'fraction' | 'decimal' | 'tape-reverse';
 
 export interface EmojiGroup {
   base: string;
@@ -28,6 +31,31 @@ export interface SchemaOption {
   hitsuzanBorrow?: boolean;  // show くり下がり mark above tens
   hitsuzanMisalign?: boolean;// bottom number misaligned (distractor)
   hitsuzanResult?: string;   // result to display (e.g. "61", "51", "？")
+  // used in divide-equal / divide-group / remainder:
+  divideTotal?: number;      // total items
+  divideBy?: number;         // number of groups (equal) or group size (group)
+  divideGroupSize?: number;  // items per group (for divide-group)
+  divideQuotient?: number;   // quotient (for remainder)
+  divideRemainder?: number;  // remainder (for remainder)
+  divideEmoji?: string;      // emoji to display items
+  divideShowEach?: number;   // override items per group shown
+  // used in fraction:
+  fractionNumerator?: number;
+  fractionDenominator?: number;
+  fractionEmoji?: string;
+  fractionHighlight?: number; // how many cells to highlight
+  // used in decimal:
+  decimalValue?: string;     // e.g. "1.3"
+  decimalMin?: string;       // number line left end
+  decimalMax?: string;       // number line right end
+  decimalWrong?: string;     // wrong value shown (distractor)
+  // used in tape-reverse:
+  tapeBase?: number;
+  tapeBaseLabel?: string;
+  tapeCompare?: number;
+  tapeCompareLabel?: string;
+  tapeUnit?: string;         // unit label (e.g. "cm")
+  tapeTimes?: number;        // multiplier (how many times)
 }
 
 // ============================================================
