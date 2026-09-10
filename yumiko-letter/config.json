@@ -1,0 +1,22 @@
+{
+  "model": "claude-opus-5",
+  "effort": "medium",
+  "recentScenesToAvoid": 14,
+  "threadsTag": "未来の私からの手紙",
+  "handle": "",
+  "image": {
+    "width": 1080,
+    "height": 1350,
+    "paper": "#F6F1E7",
+    "ink": "#2B2F3A",
+    "soft": "#7A7466",
+    "rule": "#E3DACB",
+    "accent": "#B8483A",
+    "fontFamily": "\"Yu Mincho\", \"YuMincho\", \"Hiragino Mincho ProN\", \"BIZ UDPMincho\", \"Noto Serif CJK JP\", \"Noto Serif JP\", \"IPAexMincho\", \"IPAPMincho\", \"IPAPGothic\", serif"
+  },
+  "reel": {
+    "secondsPerChar": 0.24,
+    "pauseSeconds": 0.7,
+    "maxSeconds": 30
+  }
+}

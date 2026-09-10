@@ -1,0 +1,21 @@
+{
+  "name": "yumiko-letter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "未来のユミ子から「今日も冴えないユミ子」へ届く手紙を、フィード画像・キャプション・リール台本まで一発で出す",
+  "scripts": {
+    "letter": "node make_letter.js",
+    "letter:again": "node make_letter.js --again",
+    "letter:sample": "node make_letter.js --sample"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.124.0"
+  },
+  "optionalDependencies": {
+    "playwright": "1.56.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
